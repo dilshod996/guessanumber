@@ -8,7 +8,10 @@
 # If they run out of turns, provide feedback to the player. 
 # Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
 import random
-
+from logos import starting_logo
+print(starting_logo)
+print("Welcome to the number guessing Game!")
+print("I am thinking of a number between 1 and 100.")
 hard = 5
 easy =10
 number = random.randint(1, 100)
@@ -30,15 +33,20 @@ if difficulty_type == "easy":
     
     if guess > number:
       print("Too high")
-      print("Guess again")
+      if easy >1:
+        print("Guess again")
     elif guess<number:
       print("Too low")
-      print("Guess again")
+      if easy > 1:
+        print("Guess again")
     elif guess == number:
       print(f"You found the guess number is: {number}")
       end_game = True
+
     else:
       end_game = True
+    if easy ==1:
+      print("Game Over")
 elif difficulty_type == "hard":
   while end_game == False and hard > 1:
     
@@ -49,16 +57,21 @@ elif difficulty_type == "hard":
 
     if guess > number:
       print("Too high")
-      print("Guess again")
+      if hard > 1: 
+        print("Guess again")
     elif guess<number:
       print("Too low")
-      print("Guess again")
+      if hard > 1:
+        
+        print("Guess again")
 
     elif guess == number:
       print(f"You found the guess number is: {number}")
-      end_game == True
+      end_game = True
     else:
       end_game = True
+    if hard == 1:
+      print("Game Over")
 else:
   end_game = True
       
